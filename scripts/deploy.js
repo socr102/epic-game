@@ -3,13 +3,13 @@ const main = async () => {
   
   const gameContract = await gameContractFactory.deploy(                        
     ["Leo", "Aang", "Pikachu"],       
-    ["https://i.imgur.com/pKd5Sdk.png", 
-    "https://i.imgur.com/xVu4vFL.png", 
-    "https://i.imgur.com/u7T87A6.png"],
+    ["https://ipfs.infura.io/ipfs/QmTbPVfXQg5mvcHugyhGkPjLc6x6mz8KCdiZ4rpL7Epop7", 
+    "https://ipfs.infura.io/ipfs/QmVHUeX2hDBHVSDRGyxvz7hnheh9SPHiZuFea3hpC3JX72", 
+    "https://ipfs.infura.io/ipfs/QmPf6By6xNs42n3G4fHM9CmrUThxDuNJUMvCKD7kYw4KYA"],  
     [100, 200, 300],                    
     [100, 50, 25],
     "Elon Musk",
-    "https://i.imgur.com/AksR0tt.png",
+    "https://ipfs.infura.io/ipfs/QmadPQRMNt6w6qVzbpVn375BRTTfbPWWF9rZttLrqfYehG",
     10000,
     50
   );
