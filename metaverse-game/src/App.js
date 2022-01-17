@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
+import SelectCharacter from './Components/SelectCharacter';
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -8,6 +9,7 @@ const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState(null);
+  const [characterNFT, setCharacterNFT] = useState(null);
 
   const checkIfWalletConnected = async() => {
     try{
@@ -31,6 +33,22 @@ const App = () => {
     } 
   }
 
+  const renderContent = () => {
+    if(!currentAccount){
+      return(
+        <div className="connect-wallet-container">
+          <button
+            className="cta-button connect-wallet-button"
+            onClick={connectWalletAction}
+          >
+            Connect Wallet To Get Started
+          </button>
+        </div>
+      );
+    } else if (currentAccount && !characterNFT){
+      return <SelectCharacter setCharacterNFT={setCharacterNFT} />;
+    }
+  }
   const connectWalletAction = async() => {
     try{
       const {ethereum} = window;
@@ -59,12 +77,7 @@ const App = () => {
           <p className="header gradient-text">⚔️ Metaverse Slayer ⚔️</p>
           <p className="sub-text">Team up to protect the Metaverse!</p>
           <div className="connect-wallet-container">
-            <button
-                className="cta-button connect-wallet-button"
-                onClick={connectWalletAction}
-              >
-                Connect Wallet To Get Started
-              </button>
+            {renderContent()} 
           </div>
         </div>
         <div className="footer-container">
