@@ -20,8 +20,8 @@ module.exports = {
   solidity: "0.8.0",
   networks: {
     rinkeby: {
-      url: 'https://eth-rinkeby.alchemyapi.io/v2/Dg4cD4i73tsghFZk6mqD1iTE5ee1KNud',
-      accounts: ['6b5edc11416dd40245c47e4854541f9440bb91cc286aec895af4b746cb7e0a07'],
+      url: process.env.PROD_ALCHEMY_KEY,
+      accounts: [process.env.PRIVATE_KEY],
     },
     mainnet: {
       chainId: 1,
